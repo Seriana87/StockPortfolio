@@ -59,8 +59,10 @@ namespace StockPortfolio.Business.TestData
 
         public void AddOrderToCart(Order orderToAdd, Cart cart)
         {
-            var orders = new List<Order>();
-            orders.Add(orderToAdd);
+            var orders = new List<Order>
+            {
+                orderToAdd
+            };
 
             cart.Order = orders;
         }
