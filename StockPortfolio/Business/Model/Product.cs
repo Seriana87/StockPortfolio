@@ -10,6 +10,6 @@ namespace StockPortfolio.Business.Model
         public int Id { get; set; }
         public string Symbol { get; set; }
         public string Name { get; set; }
-        public double PriceBought { get; set; }
+        public double? PriceBought { get; set; }
     }
 }

@@ -49,9 +49,9 @@ namespace StockPortfolio.Business.Service
                 port.Symbol = shopingCartOrderSingle.Products.Symbol;
                 port.CurrentPrice = item.Price;
                 port.Quantity = shopingCartOrderSingle.Quantity;
-                port.BuyValue = shopingCartOrderSingle.Products.PriceBought * shopingCartOrderSingle.Quantity;
-                port.CurrentValue = (double)Decimal.Multiply(shopingCartOrderSingle.Quantity,(decimal) item.Price);
-                port.Yield = ((port.CurrentValue - port.BuyValue) / port.BuyValue) * 100;
+                port.BuyValue = shopingCartOrderSingle.Products.PriceBought == null ? null : shopingCartOrderSingle.Products.PriceBought * shopingCartOrderSingle.Quantity;
+                port.CurrentValue = (item.Price == null) ? null : (double?)Decimal.Multiply(shopingCartOrderSingle.Quantity,(decimal) item.Price);
+                port.Yield = (port.CurrentValue == null || port.BuyValue == null) ? null : ((port.CurrentValue - port.BuyValue) / port.BuyValue) * 100;
                 portfolios.Add(port);
             }
             return portfolios;
