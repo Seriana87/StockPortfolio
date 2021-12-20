@@ -28,13 +28,11 @@ namespace StockPortfolio.Controllers
         {
             try
             {
-                // First will get the cart the user byId using CartService With some mockdata
+                
                 // in perfect scenario we will get the data from our endpoint service that gets the data from the DB
                 var shopingcartData = _cartService.GetCart();
-                // will prepare our response for the cart base on real data 
                 // call stock-data endpoint with a list of vwdkey
                 var keys = _cartService.GetAllKeys();
-
                 var searchPriceData = await _searchService.SearchPriceData(keys);
 
                 // Bind Portofolio with data wanted
